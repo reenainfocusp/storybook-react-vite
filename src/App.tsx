@@ -1,13 +1,14 @@
 import './App.css'
 import Card from './component/Card/Card'
-import { Button } from './components/ui/button'
+import { IfUiButton } from './components/ui'
+// import Button  from './components/ui/button'
 
 function App() {
 
   return (
     <>
      <Card title={'hello'}/>
-     <Button>Click me</Button>
+     <IfUiButton>Click me</IfUiButton>  
     </>
   )
 }

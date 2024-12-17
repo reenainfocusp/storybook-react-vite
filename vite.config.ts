@@ -30,3 +30,4 @@ export default defineConfig({
     },
   },
 });
+//need to change build process filename change for css

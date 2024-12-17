@@ -38,7 +38,7 @@ const buttonVariants = cva(
         green: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500',
         yellow: 'bg-yellow-500 text-white hover:bg-yellow-600 focus:ring-yellow-400',
         custom: '', // Custom lets users pass their own classes via `className`
-      },  
+      },
     },
     defaultVariants: {
       variant: "default",
@@ -51,16 +51,16 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, width, bgColor , asChild = false, ...props }, ref) => {
+  ({ className, variant, size, width, bgColor, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, width, bgColor }), className)}
         ref={ref}
         {...props}
       />
@@ -68,5 +68,5 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 )
 Button.displayName = "Button"
-
-export { Button, buttonVariants }
+export default Button;
+export { buttonVariants };

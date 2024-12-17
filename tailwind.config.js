@@ -54,5 +54,9 @@ export default {
   	}
   },
   plugins: [require("tailwindcss-animate")],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@radix-ui/react-slot/dist/*.js", // Include Radix components
+  ],
 }
 
