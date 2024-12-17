@@ -1,53 +1,105 @@
+import Button from '@/components/ui/button';
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 
-import { Button } from './Button';
-
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
-  title: 'Example/Button',
-  component: Button,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+const meta: Meta<typeof Button> = {
+  title: 'Example/Button',  // This title determines where the story will appear in the Storybook UI
+  component: Button,  // Component we are creating the story for
   tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
+  parameters: {
+    layout: 'centered',  // Centers the component in the Storybook preview panel
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
-} satisfies Meta<typeof Button>;
+  args: {
+    children: 'Default Button',  // Default button label
+    variant: 'default',  // Default variant
+    size: 'default',  // Default size
+    width: 'auto',  // Default width
+    bgColor: 'default',  // Default background color
+  },
+};
 
-export default meta;
+export default meta;  // This must be the default export
+
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+// Default story without overriding any args
+export const Default: Story = {};
+
+// Custom story with a destructive variant
+export const Destructive: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    variant: 'destructive',
+    children: 'Destructive Button',
   },
 };
 
+// Custom story with an outline variant
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+    children: 'Outline Button',
+  },
+};
+
+// Custom story with a secondary variant
 export const Secondary: Story = {
   args: {
-    label: 'Button',
+    variant: 'secondary',
+    children: 'Secondary Button',
   },
 };
 
-export const Large: Story = {
+// Custom story with a ghost variant
+export const Ghost: Story = {
   args: {
-    size: 'large',
-    label: 'Button',
+    variant: 'ghost',
+    children: 'Ghost Button',
   },
 };
 
+// Custom story with a link variant
+export const Link: Story = {
+  args: {
+    variant: 'link',
+    children: 'Link Button',
+  },
+};
+
+// Custom story with a small button size
 export const Small: Story = {
   args: {
-    size: 'small',
-    label: 'Button',
+    size: 'sm',
+    children: 'Small Button',
+  },
+};
+
+// Custom story with a large button size
+export const Large: Story = {
+  args: {
+    size: 'lg',
+    children: 'Large Button',
+  },
+};
+
+// Custom story with a red background color
+export const RedButton: Story = {
+  args: {
+    bgColor: 'red',
+    children: 'Red Button',
+  },
+};
+
+// Custom story with a green background color
+export const GreenButton: Story = {
+  args: {
+    bgColor: 'green',
+    children: 'Green Button',
+  },
+};
+
+// Custom story with a yellow background color
+export const YellowButton: Story = {
+  args: {
+    bgColor: 'yellow',
+    children: 'Yellow Button',
   },
 };
